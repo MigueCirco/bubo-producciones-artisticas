@@ -14,9 +14,9 @@
     <header class="site-header">
       <div class="container header-content">
         <a class="brand" href="#hero">
-          <!-- REEMPLAZAR: logo oficial en assets/logos/logo-principal.png -->
+          <!-- Si todavía no existe, cargar el archivo en: assets/logos/buho-logo-principal.png -->
           <img
-            src="assets/img/placeholders/logo-placeholder.svg"
+            src="assets/logos/buho-logo-principal.png"
             alt="Logo Búho Producciones Artísticas"
             width="64"
             height="64"
@@ -53,14 +53,14 @@
               <a class="button button-secondary" href="#productos">Ver productos</a>
             </div>
           </div>
-          <figure class="placeholder-card hero-media">
-            <!-- REEMPLAZAR: hero real en assets/img/hero/hero-principal.jpg -->
+          <figure class="hero-media">
+            <!-- Si no existe todavía, reemplazar cuando se suba: assets/img/hero/hero-buho-show.jpg -->
             <img
-              src="assets/img/placeholders/hero-placeholder.svg"
-              alt="Placeholder hero Búho Producciones Artísticas"
+              src="assets/img/hero/hero-buho-show.jpg"
+              alt="Artistas de Búho Producciones en escena durante un show nocturno"
             />
             <figcaption>
-              Espacio listo para foto principal del show en vivo (formato horizontal, alta calidad).
+              Imagen principal del show para reforzar impacto visual y tono premium nocturno.
             </figcaption>
           </figure>
         </div>
@@ -73,7 +73,13 @@
             Tres formatos reales para vender mejor tu evento según el tipo de público y horario.
           </p>
           <div class="grid cards-3">
-            <article class="card">
+            <article class="card product-card">
+              <!-- Reemplazar al cargar nueva versión: assets/img/products/circo-buhos-1.jpg -->
+              <img
+                class="product-image"
+                src="assets/img/products/circo-buhos-1.jpg"
+                alt="El Circo de los Búhos con artistas en escena"
+              />
               <h3>El Circo de los Búhos</h3>
               <p>
                 Show interactivo de 60 minutos para familias, municipios, colonias, festivales y
@@ -86,7 +92,13 @@
                 <li>Cierre con juego para toda la familia.</li>
               </ul>
             </article>
-            <article class="card">
+            <article class="card product-card">
+              <!-- Reemplazar al cargar nueva versión: assets/img/products/fire-experience-1.jpg -->
+              <img
+                class="product-image"
+                src="assets/img/products/fire-experience-1.jpg"
+                alt="Búho Fire Experience con performance de fuego"
+              />
               <h3>Búho Fire Experience</h3>
               <p>
                 Experiencia nocturna premium de 30 a 45 minutos para bares, patios cerveceros,
@@ -99,7 +111,13 @@
                 <li>Formato urbano para activar noches con identidad.</li>
               </ul>
             </article>
-            <article class="card">
+            <article class="card product-card">
+              <!-- Reemplazar al cargar nueva versión: assets/img/products/recepcion-impacto-1.jpg -->
+              <img
+                class="product-image"
+                src="assets/img/products/recepcion-impacto-1.jpg"
+                alt="Recepción visual con artistas de Búho Producciones"
+              />
               <h3>Recepción / Impacto Visual</h3>
               <p>
                 Formato modular breve para transformar la llegada de tus invitados desde el primer
@@ -147,23 +165,28 @@
         <div class="container">
           <h2>Galería</h2>
           <p class="section-intro">
-            Espacios listos para cargar fotos reales de cada producto y reforzar la venta visual.
+            Galería preparada para recambio simple de fotos reales desde la carpeta
+            <code>assets/img/gallery/</code>.
           </p>
-          <div class="grid cards-3">
-            <figure class="placeholder-card">
-              <!-- REEMPLAZAR: fotos reales El Circo de los Búhos en assets/img/galeria/circo/ -->
-              <img src="assets/img/placeholders/gallery-1.svg" alt="Placeholder Circo de los Búhos" />
-              <figcaption>Bloque visual reservado para El Circo de los Búhos.</figcaption>
+          <div class="grid gallery-grid">
+            <!-- Si faltan archivos, subí imágenes reales en assets/img/gallery/ y conservá estos nombres -->
+            <figure class="gallery-card">
+              <img src="assets/img/gallery/gallery-circo-1.jpg" alt="Escena en vivo de El Circo de los Búhos" />
             </figure>
-            <figure class="placeholder-card">
-              <!-- REEMPLAZAR: fotos reales Búho Fire Experience en assets/img/galeria/fire/ -->
-              <img src="assets/img/placeholders/gallery-2.svg" alt="Placeholder Búho Fire Experience" />
-              <figcaption>Bloque visual reservado para Búho Fire Experience.</figcaption>
+            <figure class="gallery-card">
+              <img src="assets/img/gallery/gallery-fire-1.jpg" alt="Performance de fuego en evento nocturno" />
             </figure>
-            <figure class="placeholder-card">
-              <!-- REEMPLAZAR: fotos reales Recepción / Impacto Visual en assets/img/galeria/recepcion/ -->
-              <img src="assets/img/placeholders/gallery-3.svg" alt="Placeholder Recepción / Impacto Visual" />
-              <figcaption>Bloque visual reservado para Recepción / Impacto Visual.</figcaption>
+            <figure class="gallery-card">
+              <img src="assets/img/gallery/gallery-recepcion-1.jpg" alt="Recepción artística en evento social" />
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/img/gallery/gallery-circo-2.jpg" alt="Interacción de artistas con el público" />
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/img/gallery/gallery-fire-2.jpg" alt="Búho Fire Experience durante una noche temática" />
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/img/gallery/gallery-recepcion-2.jpg" alt="Impacto visual de bienvenida para invitados" />
             </figure>
           </div>
         </div>
