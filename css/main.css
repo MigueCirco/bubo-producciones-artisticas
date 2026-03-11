@@ -80,9 +80,35 @@ img {
   align-items: center;
 }
 
+.hero h1 {
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 1rem;
+}
+
+.hero-highlight {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 1rem 0;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hero-media figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .eyebrow {
   text-transform: uppercase;
   font-size: 0.85rem;
+  letter-spacing: 0.04em;
   color: var(--accent);
 }
 
@@ -94,8 +120,14 @@ img {
   border: none;
   border-radius: 0.5rem;
   font-weight: 700;
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1.1rem;
   cursor: pointer;
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid #4c5697;
 }
 
 .section-intro {
@@ -125,8 +157,15 @@ details {
   padding: 1rem;
 }
 
-.timeline {
+.card ul {
+  margin: 0.8rem 0 0;
   padding-left: 1.2rem;
+}
+
+.placeholder-card figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .contact-form {
