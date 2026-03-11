@@ -1,13 +1,12 @@
-# Búho Producciones Artísticas · Base técnica (Fase 1 + Fase 2 inicial)
+# Búho Producciones Artísticas · Base técnica (arquitectura v2)
 
-Este repositorio contiene una **base técnica limpia y escalable** para una web estática de Búho Producciones Artísticas.
+Este repositorio contiene una base técnica limpia y escalable para una web estática de Búho Producciones Artísticas.
 
-> Alcance de esta entrega:
-> - ✅ Fase 1: estructura de carpetas y archivos base
-> - ✅ Fase 2 inicial: landing modular con HTML/CSS/JS separados y placeholders
-> - ❌ No incluye aún contenido final, fotografías reales ni integración con backend
-
----
+> Alcance de esta pasada:
+> - ✅ Corrección de rutas para que la preview sirva `index.html` correctamente
+> - ✅ Reorganización de assets para crecimiento por dominios de contenido
+> - ✅ Documentación actualizada de estructura y reemplazos
+> - ❌ Sin versión visual final todavía
 
 ## 1) Estructura del proyecto
 
@@ -18,18 +17,32 @@ B-ho-Web/
 ├── assets/
 │   ├── logos/
 │   │   └── .gitkeep
-│   ├── images/
-│   │   └── placeholders/
-│   │       ├── .gitkeep
-│   │       ├── logo-placeholder.svg
-│   │       ├── hero-placeholder.svg
-│   │       ├── gallery-1.svg
-│   │       ├── gallery-2.svg
-│   │       └── gallery-3.svg
-│   ├── flyers/
-│   │   └── .gitkeep
-│   └── campaigns-mensuales/
-│       └── .gitkeep
+│   ├── img/
+│   │   ├── placeholders/
+│   │   │   ├── .gitkeep
+│   │   │   ├── logo-placeholder.svg
+│   │   │   ├── hero-placeholder.svg
+│   │   │   ├── gallery-1.svg
+│   │   │   ├── gallery-2.svg
+│   │   │   └── gallery-3.svg
+│   │   ├── hero/
+│   │   │   └── .gitkeep
+│   │   ├── gallery/
+│   │   │   └── .gitkeep
+│   │   ├── products/
+│   │   │   └── .gitkeep
+│   │   └── campaigns/
+│   │       └── .gitkeep
+│   └── flyers/
+│       ├── .gitkeep
+│       ├── familia/
+│       │   └── .gitkeep
+│       ├── bares/
+│       │   └── .gitkeep
+│       ├── recepcion/
+│       │   └── .gitkeep
+│       └── mensuales/
+│           └── .gitkeep
 ├── css/
 │   └── main.css
 ├── js/
@@ -38,76 +51,35 @@ B-ho-Web/
     └── content-guide.md
 ```
 
-### ¿Para qué sirve cada carpeta?
-- `assets/logos/`: logos oficiales, isotipos y variantes.
-- `assets/images/`: imágenes generales del sitio (hero, fondos, etc.).
-- `assets/images/placeholders/`: recursos temporales de maqueta visual.
-- `assets/flyers/`: flyers de eventos.
-- `assets/campaigns-mensuales/`: piezas por campaña mensual (enero, febrero, etc.).
-- `css/`: estilos del proyecto.
-- `js/`: scripts del proyecto.
-- `docs/`: documentación operativa y guía de reemplazo de contenido.
+## 2) Criterio de organización
 
----
+- `assets/logos/`: identidad de marca.
+- `assets/img/placeholders/`: material temporal de maqueta.
+- `assets/img/hero/`: imágenes de portada.
+- `assets/img/gallery/`: galería editorial/fotográfica.
+- `assets/img/products/`: recursos visuales por producto/servicio.
+- `assets/img/campaigns/`: piezas gráficas para campañas.
+- `assets/flyers/{familia,bares,recepcion,mensuales}/`: flyers segmentados por tipo de uso.
 
-## 2) Landing incluida en esta fase
+Esto permite escalar sin mezclar contenido final con temporales ni mezclar campañas con catálogos visuales.
 
-La landing inicial ya tiene secciones preparadas para:
-- Hero
-- Productos
-- Bares & Noches
-- Galería
-- Testimonios
-- FAQ
-- Contacto
+## 3) Preview local
 
-Características técnicas:
-- Estructura semántica y modular en `index.html`.
-- Estilos centralizados en `css/main.css`.
-- Comportamiento mínimo en `js/main.js` (año automático + feedback de formulario de ejemplo).
-- Placeholders de imagen ya conectados.
-- Comentarios en el HTML indicando exactamente dónde reemplazar logo, hero y campañas.
-
----
-
-## 3) Reglas técnicas seguidas
-
-- Sin frameworks (solo HTML, CSS y JS).
-- Separación clara por capas (`index.html`, `css/main.css`, `js/main.js`).
-- Organización orientada a mantenimiento y crecimiento.
-- Lista para hosting estático (Netlify, Vercel estático, GitHub Pages, servidor Nginx/Apache).
-
----
-
-## 4) Cómo ejecutar en local
-
-### Opción rápida con Python
+Para evitar errores de resolución de rutas, `index.html` usa rutas relativas explícitas (`./css/main.css`, `./js/main.js`) y assets bajo `assets/img/...`.
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Luego abrir en navegador:
+Luego abrir:
 
 ```text
 http://localhost:8000
 ```
 
----
+## 4) Próximos pasos sugeridos
 
-## 5) Próximos pasos recomendados (fuera del alcance actual)
-
-1. Reemplazar placeholders por material final (`assets/logos`, `assets/images`, `assets/flyers`).
-2. Definir estructura interna para campañas mensuales, por ejemplo:
-   - `assets/campaigns-mensuales/2026-01/`
-   - `assets/campaigns-mensuales/2026-02/`
-3. Conectar formulario de contacto a proveedor real (Formspree, Netlify Forms, backend propio).
-4. Optimizar imágenes (WebP/AVIF) y añadir metadatos SEO/social.
-
----
-
-## 6) Notas de mantenimiento
-
-- Mantener nombres consistentes y descriptivos para archivos multimedia.
-- Evitar mezclar contenido final con placeholders.
-- Documentar cambios estructurales en `docs/` para facilitar onboarding.
+1. Sustituir placeholders por imágenes finales en las carpetas de dominio (`hero`, `gallery`, `products`, `campaigns`).
+2. Definir convención para campañas (por ejemplo, `assets/img/campaigns/2026-03/`).
+3. Conectar el formulario a proveedor real (Formspree, Netlify Forms o backend propio).
+4. Optimizar imágenes (WebP/AVIF) antes de publicación.
