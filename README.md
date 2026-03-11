@@ -2,12 +2,6 @@
 
 Este repositorio contiene una base técnica limpia y escalable para una web estática de Búho Producciones Artísticas.
 
-> Alcance de esta pasada:
-> - ✅ Corrección de rutas para que la preview sirva `index.html` correctamente
-> - ✅ Reorganización de assets para crecimiento por dominios de contenido
-> - ✅ Documentación actualizada de estructura y reemplazos
-> - ❌ Sin versión visual final todavía
-
 ## 1) Estructura del proyecto
 
 ```text
@@ -17,32 +11,15 @@ B-ho-Web/
 ├── assets/
 │   ├── logos/
 │   │   └── .gitkeep
-│   ├── img/
-│   │   ├── placeholders/
-│   │   │   ├── .gitkeep
-│   │   │   ├── logo-placeholder.svg
-│   │   │   ├── hero-placeholder.svg
-│   │   │   ├── gallery-1.svg
-│   │   │   ├── gallery-2.svg
-│   │   │   └── gallery-3.svg
-│   │   ├── hero/
-│   │   │   └── .gitkeep
-│   │   ├── gallery/
-│   │   │   └── .gitkeep
-│   │   ├── products/
-│   │   │   └── .gitkeep
-│   │   └── campaigns/
+│   ├── videos/
+│   │   └── products/
 │   │       └── .gitkeep
+│   ├── img/
+│   │   ├── hero/
+│   │   ├── gallery/
+│   │   ├── products/
+│   │   └── campaigns/
 │   └── flyers/
-│       ├── .gitkeep
-│       ├── familia/
-│       │   └── .gitkeep
-│       ├── bares/
-│       │   └── .gitkeep
-│       ├── recepcion/
-│       │   └── .gitkeep
-│       └── mensuales/
-│           └── .gitkeep
 ├── css/
 │   └── main.css
 ├── js/
@@ -51,35 +28,43 @@ B-ho-Web/
     └── content-guide.md
 ```
 
-## 2) Criterio de organización
+## 2) Home audiovisual y orientada a ventas
 
-- `assets/logos/`: identidad de marca.
-- `assets/img/placeholders/`: material temporal de maqueta.
-- `assets/img/hero/`: imágenes de portada.
-- `assets/img/gallery/`: galería editorial/fotográfica.
-- `assets/img/products/`: recursos visuales por producto/servicio.
-- `assets/img/campaigns/`: piezas gráficas para campañas.
-- `assets/flyers/{familia,bares,recepcion,mensuales}/`: flyers segmentados por tipo de uso.
+### Productos con video
+La sección `#productos` ya está preparada para usar 3 videos locales HTML5 con fallback visual vía `poster`.
 
-Esto permite escalar sin mezclar contenido final con temporales ni mezclar campañas con catálogos visuales.
+Rutas esperadas:
+- `assets/videos/products/circo-buhos.mp4`
+- `assets/videos/products/experiencia-nocturna.mp4`
+- `assets/videos/products/recepcion-impacto.mp4`
+
+Si todavía no cargaste los MP4, la tarjeta mantiene una miniatura (`poster`) y el bloque queda listo para reemplazo sin tocar estructura.
+
+### Galería Instagram curada (3 reels + 3 posts)
+La galería se renderiza desde un arreglo editable en `js/main.js`:
+
+```js
+const instagramGalleryItems = [
+  { type: 'video', url: '...', title: '...', thumbnail: '...' },
+  // ... 6 ítems totales
+];
+```
+
+Para actualizarla solo editás:
+1. `url` (enlace de Instagram).
+2. `title` (texto comercial breve).
+3. `thumbnail` (miniatura local para carga rápida).
 
 ## 3) Preview local
-
-Para evitar errores de resolución de rutas, `index.html` usa rutas relativas explícitas (`./css/main.css`, `./js/main.js`) y assets bajo `assets/img/...`.
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Luego abrir:
+Luego abrir: `http://localhost:8000`
 
-```text
-http://localhost:8000
-```
+## 4) Mantenimiento rápido (sin tocar mucho código)
 
-## 4) Próximos pasos sugeridos
-
-1. Sustituir placeholders por imágenes finales en las carpetas de dominio (`hero`, `gallery`, `products`, `campaigns`).
-2. Definir convención para campañas (por ejemplo, `assets/img/campaigns/2026-03/`).
-3. Conectar el formulario a proveedor real (Formspree, Netlify Forms o backend propio).
-4. Optimizar imágenes (WebP/AVIF) antes de publicación.
+- **Cambiar videos de productos:** reemplazar los 3 `.mp4` con el mismo nombre.
+- **Cambiar links de Instagram:** editar solo `instagramGalleryItems` en `js/main.js`.
+- **Cambiar miniaturas de Instagram:** actualizar archivos en `assets/img/gallery/` y mantener nombres o editar `thumbnail`.

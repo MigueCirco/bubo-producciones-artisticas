@@ -73,12 +73,21 @@
           </p>
           <div class="grid cards-3">
             <article class="card product-card">
-              <!-- Reemplazar al cargar nueva versión: assets/img/products/circo-buhos-1.jpg -->
-              <img
-                class="product-image"
-                src="assets/img/products/circo-buhos-1.jpg"
-                alt="El Circo de los Búhos con artistas en escena"
-              />
+              <div class="product-media-shell">
+                <!-- Video principal. Reemplazar archivo local en: assets/videos/products/circo-buhos.mp4 -->
+                <video
+                  class="product-video"
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="assets/img/products/circo-buhos-1.jpg"
+                >
+                  <source src="assets/videos/products/circo-buhos.mp4" type="video/mp4" />
+                  Tu navegador no soporta videos HTML5. Podés ver el contenido en nuestras redes.
+                </video>
+              </div>
               <h3>El Circo de los Búhos</h3>
               <p>
                 Show de 60 minutos, dinámico y participativo, ideal para familias, festivales y
@@ -92,12 +101,21 @@
               </ul>
             </article>
             <article class="card product-card">
-              <!-- Reemplazar al cargar nueva versión: assets/img/products/fire-experience-1.jpg -->
-              <img
-                class="product-image"
-                src="assets/img/products/fire-experience-1.jpg"
-                alt="Experiencia Nocturna Búho con performance de fuego"
-              />
+              <div class="product-media-shell">
+                <!-- Video principal. Reemplazar archivo local en: assets/videos/products/experiencia-nocturna.mp4 -->
+                <video
+                  class="product-video"
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="assets/img/products/fire-experience-1.jpg"
+                >
+                  <source src="assets/videos/products/experiencia-nocturna.mp4" type="video/mp4" />
+                  Tu navegador no soporta videos HTML5. Podés ver el contenido en nuestras redes.
+                </video>
+              </div>
               <h3>Experiencia Nocturna Búho</h3>
               <p>
                 Show nocturno de 30 a 45 minutos para bares, patios cerveceros, terrazas y noches
@@ -111,12 +129,21 @@
               </ul>
             </article>
             <article class="card product-card">
-              <!-- Reemplazar al cargar nueva versión: assets/img/products/recepcion-impacto-1.jpg -->
-              <img
-                class="product-image"
-                src="assets/img/products/recepcion-impacto-1.jpg"
-                alt="Recepción visual con artistas de Búho Producciones"
-              />
+              <div class="product-media-shell">
+                <!-- Video principal. Reemplazar archivo local en: assets/videos/products/recepcion-impacto.mp4 -->
+                <video
+                  class="product-video"
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="assets/img/products/recepcion-impacto-1.jpg"
+                >
+                  <source src="assets/videos/products/recepcion-impacto.mp4" type="video/mp4" />
+                  Tu navegador no soporta videos HTML5. Podés ver el contenido en nuestras redes.
+                </video>
+              </div>
               <h3>Recepción e Impacto Visual</h3>
               <p>
                 Formato breve y flexible para que tus invitados vivan una bienvenida impactante
@@ -163,32 +190,15 @@
 
       <section id="galeria" class="section">
         <div class="container">
-          <h2>Galería</h2>
+          <h2>Galería Instagram</h2>
           <p class="section-intro">
-            Galería preparada para recambio simple de fotos reales desde la carpeta
-            <code>assets/img/gallery/</code>.
+            Selección de 3 reels y 3 publicaciones para mostrar actividad real de Búho en vivo.
+            Editá solo la lista <code>instagramGalleryItems</code> en <code>js/main.js</code>.
           </p>
-          <div class="grid gallery-grid">
-            <!-- Si faltan archivos, subí imágenes reales en assets/img/gallery/ y conservá estos nombres -->
-            <figure class="gallery-card">
-              <img src="assets/img/gallery/gallery-circo-1.jpg" alt="Escena en vivo de El Circo de los Búhos" />
-            </figure>
-            <figure class="gallery-card">
-              <img src="assets/img/gallery/gallery-fire-1.jpg" alt="Performance de fuego en evento nocturno" />
-            </figure>
-            <figure class="gallery-card">
-              <img src="assets/img/gallery/gallery-recepcion-1.jpg" alt="Recepción artística en evento social" />
-            </figure>
-            <figure class="gallery-card">
-              <img src="assets/img/gallery/gallery-circo-2.jpg" alt="Interacción de artistas con el público" />
-            </figure>
-            <figure class="gallery-card">
-              <img src="assets/img/gallery/gallery-fire-2.jpg" alt="Experiencia Nocturna Búho durante una noche temática" />
-            </figure>
-            <figure class="gallery-card">
-              <img src="assets/img/gallery/gallery-recepcion-2.jpg" alt="Impacto visual de bienvenida para invitados" />
-            </figure>
+          <div class="grid gallery-grid instagram-gallery" id="instagram-gallery" aria-live="polite">
+            <!-- Render dinámico desde js/main.js para facilitar mantenimiento de URLs de Instagram -->
           </div>
+          <noscript>Activá JavaScript para ver la galería de Instagram.</noscript>
         </div>
       </section>
 
