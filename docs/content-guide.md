@@ -32,20 +32,30 @@ La sección `#galeria` se genera dinámicamente desde `js/main.js` usando este a
 
 ```js
 const instagramGalleryItems = [
-  { type: 'video', url: 'https://www.instagram.com/reel/.../', title: '...' },
-  { type: 'video', url: 'https://www.instagram.com/reel/.../', title: '...' },
-  { type: 'video', url: 'https://www.instagram.com/reel/.../', title: '...' },
-  { type: 'image', url: 'https://www.instagram.com/p/.../', title: '...' },
-  { type: 'image', url: 'https://www.instagram.com/p/.../', title: '...' },
-  { type: 'image', url: 'https://www.instagram.com/p/.../', title: '...' }
+  {
+    contentType: 'REEL',
+    url: 'https://www.instagram.com/reel/.../',
+    title: '...',
+    thumbnailManual: '',
+    thumbnailExperimental: ''
+  },
+  // ... 5 tarjetas más
 ];
 ```
 
 ### Qué editar para mantener la galería al día
 
-- `type`: `video` para reel, `image` para post/foto.
+- `contentType`: `REEL` o `POST` para la etiqueta visual.
 - `url`: link público de Instagram.
 - `title`: texto visible en tarjeta.
+- `thumbnailManual` (opcional): miniatura definida manualmente (prioridad 1).
+- `thumbnailExperimental` (opcional): soporte secundario de miniatura automática/externa. Si falla, la tarjeta sigue mostrando fallback visual elegante.
+
+### Prioridad de render de miniaturas
+
+1. `thumbnailManual`
+2. `thumbnailExperimental`
+3. fallback visual con ícono Instagram + etiqueta + título + botón.
 
 ---
 
@@ -58,13 +68,16 @@ const instagramGalleryItems = [
 
 ---
 
-## 4) Instagram oficial y links editables
+## 4) Instagram oficial, navbar mobile y links editables
 
 Toda la configuración comercial está en `js/main.js`:
 
 - **Perfil oficial de Instagram:** cambiar `instagramProfileUrl`.
 - **Los 6 links de galería (3 reels + 3 posts):** cambiar `url` dentro de `instagramGalleryItems`.
+- **Etiqueta REEL/POST:** cambiar `contentType` en cada item.
 - **Título visible de cada tarjeta:** cambiar `title` en cada item.
+- **Miniatura manual/experimental por tarjeta:** `thumbnailManual` y `thumbnailExperimental`.
+- **Nombre mobile del navbar:** editar los textos en `index.html` (`.brand-label-default` y `.brand-label-compact`).
 
 Ejemplo:
 
@@ -72,7 +85,13 @@ Ejemplo:
 const instagramProfileUrl = 'https://www.instagram.com/buho_producciones_artisticas/';
 
 const instagramGalleryItems = [
-  { type: 'video', url: 'https://www.instagram.com/reel/C1ry00DOpZF/', title: '...' },
+  {
+    contentType: 'REEL',
+    url: 'https://www.instagram.com/reel/C1ry00DOpZF/',
+    title: '...',
+    thumbnailManual: '',
+    thumbnailExperimental: ''
+  },
   // ...
 ];
 ```

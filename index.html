@@ -21,9 +21,19 @@
             width="64"
             height="64"
           />
-          <span>Búho Producciones Artísticas</span>
+          <span class="brand-label brand-label-default">Búho Producciones</span>
+          <span class="brand-label brand-label-compact">Búho</span>
         </a>
-        <nav aria-label="Navegación principal">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Abrir menú principal"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
           <ul class="nav-list">
             <li><a href="#productos">Productos</a></li>
             <li><a href="#bares-noches">Experiencia Nocturna Búho</a></li>
@@ -193,7 +203,8 @@
           <h2>Galería Instagram</h2>
           <p class="section-intro">
             Selección de 3 reels y 3 publicaciones para mostrar actividad real de Búho en vivo.
-            Editá solo la lista <code>instagramGalleryItems</code> en <code>js/main.js</code>.
+            Editá la lista <code>instagramGalleryItems</code> en <code>js/main.js</code> para URL,
+            título y miniaturas opcionales.
           </p>
           <div class="grid gallery-grid instagram-gallery" id="instagram-gallery" aria-live="polite">
             <!-- Render dinámico desde js/main.js para facilitar mantenimiento de URLs de Instagram -->

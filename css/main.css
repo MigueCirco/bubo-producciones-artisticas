@@ -72,6 +72,26 @@ video {
   object-fit: contain;
 }
 
+.brand-label-compact {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid rgba(255, 122, 26, 0.45);
+  background: rgba(15, 21, 33, 0.9);
+  color: var(--accent-soft);
+  border-radius: 0.55rem;
+  font-size: 1.35rem;
+  line-height: 1;
+  padding: 0.42rem 0.62rem;
+  cursor: pointer;
+}
+
+.site-nav {
+  display: block;
+}
+
 .nav-list {
   list-style: none;
   margin: 0;
@@ -275,8 +295,10 @@ details {
 
 .instagram-thumb {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
+  min-height: 230px;
   object-fit: cover;
+  display: block;
 }
 
 .instagram-meta {
@@ -345,37 +367,105 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .header-content {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-label-default {
+    font-size: 0.98rem;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
+  .site-nav {
+    width: 100%;
+    display: none;
+    padding-top: 0.65rem;
+  }
+
+  .site-nav.is-open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0.35rem;
+    background: rgba(7, 11, 18, 0.97);
+    border: 1px solid rgba(255, 122, 26, 0.3);
+    border-radius: 0.8rem;
+    padding: 0.45rem;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--text);
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus-visible {
+    background: rgba(255, 122, 26, 0.12);
+    color: var(--accent-soft);
+  }
+
   .product-media-shell {
     width: min(100%, 20rem);
   }
+}
 
-  .brand span {
-    font-size: 0.95rem;
+@media (max-width: 380px) {
+  .brand-label-default {
+    display: none;
+  }
+
+  .brand-label-compact {
+    display: inline;
+    font-size: 1rem;
   }
 }
 
 .instagram-visual {
-  display: grid;
-  gap: 0.35rem;
-  align-content: end;
-  min-height: 210px;
-  padding: 1rem;
+  position: relative;
+  min-height: 230px;
+  overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(14, 20, 31, 0.25), rgba(14, 20, 31, 0.95)),
-    radial-gradient(circle at 18% 22%, rgba(255, 122, 26, 0.35), transparent 42%),
-    radial-gradient(circle at 82% 80%, rgba(255, 176, 111, 0.22), transparent 44%),
+    linear-gradient(180deg, rgba(9, 13, 22, 0.2), rgba(9, 13, 22, 0.92)),
+    radial-gradient(circle at 15% 20%, rgba(255, 122, 26, 0.32), transparent 40%),
+    radial-gradient(circle at 80% 86%, rgba(255, 176, 111, 0.22), transparent 46%),
     #0f1521;
   border-bottom: 1px solid rgba(255, 122, 26, 0.25);
 }
 
-.instagram-visual span {
-  color: var(--muted);
-  font-size: 0.85rem;
+.instagram-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  gap: 0.55rem;
+  align-content: end;
+  padding: 1rem;
 }
 
-.instagram-visual strong {
-  font-size: 1.35rem;
+.instagram-icon {
+  width: 2rem;
+  height: 2rem;
   color: var(--accent-soft);
+}
+
+.instagram-fallback-title {
+  margin: 0;
+  font-size: 1.02rem;
 }
 
 .instagram-profile-cta {
