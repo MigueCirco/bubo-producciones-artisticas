@@ -331,23 +331,50 @@ const pricingGrid = document.querySelector('#pricingGrid');
 
 if (pricingGrid) {
   const pricingIcons = {
-    artist: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="2.5" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="8" r="2" stroke="currentColor" stroke-width="2"/><path d="M4 20a5 5 0 0 1 10 0M13 20a4 4 0 0 1 7 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
-    clock: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    fire: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21c4.4 0 7-3.1 7-7 0-4.3-2.9-6.7-4.8-8.6-.1 2.2-.8 3.3-2.2 4.7-.8-1.4-1.4-3-1.1-5.1C7.4 7.2 5 10.3 5 14c0 3.9 2.6 7 7 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 18c1.9 0 3.1-1.3 3.1-3 0-1.3-.8-2.2-1.8-3-.1.9-.6 1.5-1.3 2-.5-.7-.9-1.4-.8-2.5-1.5 1-2.3 2.1-2.3 3.5 0 1.7 1.2 3 3.1 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
-    lights: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 4.5L18 9.3l-4.2 1.8L12 16l-1.8-4.9L6 9.3l4.2-1.8L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M5 15l.7 1.9L7.6 18l-1.9.7L5 20.6l-.7-1.9L2.4 18l1.9-.9L5 15Zm14-1l.9 2.2L22 17l-2.1.8L19 20l-.9-2.2L16 17l2.1-.8L19 14Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
-    bubbles: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="3.5" stroke="currentColor" stroke-width="2"/><circle cx="16.5" cy="16.5" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="7" r="2" stroke="currentColor" stroke-width="2"/></svg>`,
-    stilts: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="4" r="2" stroke="currentColor" stroke-width="2"/><path d="M12 6v6m0 0-4 3m4-3 4 2M8 15v6m8-4v4M6 21h4m6 0h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    magic: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 17h13l-2.4-5H6.4L4 17Zm4-5 2.2-3h.8l2.2 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 4l6 6m-1-6 1 1m-4 0 1 1m-1 4 1 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M19 13l.8 1.8L22 15.6l-2.2.8L19 18l-.8-1.6-2.2-.8 2.2-.8.8-1.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
-    games: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="9" r="1" fill="currentColor"/><circle cx="9" cy="15" r="1" fill="currentColor"/><circle cx="15" cy="15" r="1" fill="currentColor"/></svg>`,
-    acro: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2" stroke="currentColor" stroke-width="2"/><path d="M12 7v4m0 0-4 2m4-2 4 2M8 14l-3 4m11-4 3 4M7 21h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    photo: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M8 6 9.5 4h5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="13" r="3" stroke="currentColor" stroke-width="2"/><path d="m14.5 11.6 2.5 1.4-2.5 1.4v-2.8Z" fill="currentColor"/></svg>`,
-    juggling: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="1.8" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="7" r="1.8" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="4" r="1.8" stroke="currentColor" stroke-width="2"/><path d="M6 18c1.3-3.5 4.2-4.8 6-4.8s4.7 1.3 6 4.8M7 11c1.5 1.8 3 2.7 5 2.7S15.5 12.8 17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
-    unicycle: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="17" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 13V6m0 0h4m-4 0 2-2m0 2-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 9h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
-    dance: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="13" cy="4" r="2" stroke="currentColor" stroke-width="2"/><path d="M12 6 9 10l3 2 2-2 3 2m-7 0-3 2m8-2 2 4m-7 5 1.5-4m3.5 4-1.5-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    artist: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="8" cy="7" r="2.6" stroke="currentColor" stroke-width="1.9"/><circle cx="16" cy="8" r="2.2" stroke="currentColor" stroke-width="1.9"/><path d="M3.8 19.8a5 5 0 0 1 8.4-3.7m.4 3.7a4.4 4.4 0 0 1 7.6-3.1" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M7.5 12.7h1.4m5.6.7h1.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>`,
+    clock: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.8" stroke="currentColor" stroke-width="1.9"/><path d="M12 7.2v5.2l3.4 2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3.6v1.4m0 14v1.4m8.4-8.4H19m-14 0H3.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    fire: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21c4.3 0 7-3.2 7-7 0-4.2-2.6-6.6-4.8-8.7-.2 1.9-1 3.4-2.2 4.8-.9-1.4-1.3-2.9-1.2-5.1C7.4 7.1 5 10.3 5 14c0 3.8 2.7 7 7 7Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 17.9c2 0 3.3-1.4 3.3-3.1 0-1.4-.9-2.4-2-3.1-.1.9-.6 1.6-1.3 2.1-.6-.7-.8-1.4-.8-2.4-1.6 1-2.5 2.2-2.5 3.7 0 1.7 1.3 2.8 3.3 2.8Z" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.6"/></svg>`,
+    lights: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.4v3.2m0 8.8v3.2M4.4 12h3.2m8.8 0h3.2M6.6 6.6l2.3 2.3m6.2 6.2 2.3 2.3m0-10.8-2.3 2.3m-6.2 6.2-2.3 2.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.9"/><path d="M9.8 12h4.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>`,
+    bubbles: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="8" cy="9.3" r="3.3" stroke="currentColor" stroke-width="1.9"/><circle cx="16.4" cy="15.7" r="3.6" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="7" r="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 8.1c.3-.5.8-.9 1.5-1.1m7.1 7.2c.4-.6 1-.9 1.8-1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`,
+    stilts: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="4.4" r="2" stroke="currentColor" stroke-width="1.9"/><path d="M12 6.4v4.9m0 0-3.7 2.6m3.7-2.6 4 2.1" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.3 14.4V21m7.7-5.3V21M6.2 21h4.2m3.4 0h4.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M8.3 17h-2m9.7-.9h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    magic: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 16.6h14l-2.4-4.7H7.4L5 16.6Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9.1 11.9 12 8.5l2.9 3.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="m14.7 5.2 4.1 4.1m-3.5-4.1.9.9m-2.6 0 .9.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M19.2 13.1l.8 1.8 1.8.8-1.8.8-.8 1.8-.8-1.8-1.8-.8 1.8-.8.8-1.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`,
+    games: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.8" y="4.8" width="14.4" height="14.4" rx="2.4" stroke="currentColor" stroke-width="1.9"/><circle cx="9" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="9" r="1" fill="currentColor"/><circle cx="9" cy="15" r="1" fill="currentColor"/><path d="M14.2 14.2h2.1m-1.1-1.1v2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>`,
+    acro: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="5" r="2" stroke="currentColor" stroke-width="1.9"/><path d="M8.2 11.4h7.6M12 7v4.4m-3.8 0L6 15.8m9.8-4.4 2.2 4.4M7.1 19.8h9.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.2 9.1 12 7l2.8 2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    photo: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.4" y="6.2" width="13.8" height="11.8" rx="2.2" stroke="currentColor" stroke-width="1.9"/><path d="m7.1 6.2 1.4-2h3.6l1.3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.3" cy="12.2" r="2.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.6 10.6 5 2.7-5 2.7v-5.4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`,
+    juggling: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.1 6.4v11.2m7.8-11.2v11.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M6.6 8.3h3m-3 7.4h3m4.8-7.4h3m-3 7.4h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="5" r="1.8" stroke="currentColor" stroke-width="1.8"/><path d="M9.4 19.6c.8-1.6 1.6-2.4 2.6-2.4s1.8.8 2.6 2.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+    unicycle: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="17" r="4" stroke="currentColor" stroke-width="1.9"/><path d="M12 13v-4.8m0 0h4.2m-4.2 0 1.8-2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.2 8.2h2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 17v-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>`,
+    dance: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="13" cy="4.3" r="2" stroke="currentColor" stroke-width="1.9"/><path d="M12 6.3 9.6 9.8l2.9 2.1 2-1.8 3.2 2.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.8 12 6.8 14m7.9-1.2 2.2 3.8M9.7 20.2l1.7-3.8m3.8 3.8-1.7-3.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.3 9.6l1.4 1.4m9.9-1.4 1.4 1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`
   };
 
   const money = (value) => `$ ${Math.round(value).toLocaleString('es-AR')}`;
-  const icon = (svgStr, on, title = '', toggle = false, id = '') => `<span class="ico ${on ? 'on' : ''} ${toggle ? 'toggle' : ''}" ${id ? `data-tid="${id}"` : ''} title="${title}"><span>${svgStr}</span></span>`;
+  const icon = (svgStr, on, title = '', toggle = false, id = '') => `<span class="ico ${on ? 'on' : ''} ${toggle ? 'toggle' : ''}" ${id ? `data-tid="${id}"` : ''} title="${title}" data-tip="${title}" aria-label="${title}" tabindex="0"><span>${svgStr}</span></span>`;
+
+  const wireIconTooltips = () => {
+    const icons = pricingGrid.querySelectorAll('.ico');
+
+    icons.forEach((box) => {
+      let hideTimer;
+
+      const showTip = () => {
+        box.classList.add('tip-visible');
+        window.clearTimeout(hideTimer);
+        hideTimer = window.setTimeout(() => {
+          box.classList.remove('tip-visible');
+        }, 1400);
+      };
+
+      box.addEventListener('touchstart', showTip, { passive: true });
+      box.addEventListener('focus', () => {
+        box.classList.add('tip-visible');
+      });
+      box.addEventListener('blur', () => {
+        box.classList.remove('tip-visible');
+      });
+      box.addEventListener('mouseleave', () => {
+        box.classList.remove('tip-visible');
+      });
+    });
+  };
 
   const fixedPackages = [
     {
@@ -517,6 +544,7 @@ if (pricingGrid) {
   const renderPricing = () => {
     pricingGrid.innerHTML = fixedPackages.map(fixedCard).join('') + builderCard();
     wireBuilder();
+    wireIconTooltips();
   };
 
   const updateBuilder = () => {

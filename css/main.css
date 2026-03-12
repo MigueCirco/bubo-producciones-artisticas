@@ -838,6 +838,7 @@ textarea {
 }
 
 .ico {
+  position: relative;
   width: 2.15rem;
   height: 2.15rem;
   border-radius: 0.8rem;
@@ -851,6 +852,44 @@ textarea {
   filter: saturate(0.45);
   transition: transform 0.15s ease, opacity 0.15s ease, filter 0.15s ease, color 0.15s ease;
   cursor: default;
+}
+
+.ico::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.45rem);
+  transform: translate(-50%, 0.2rem);
+  background: rgba(10, 14, 24, 0.96);
+  color: #f6f8ff;
+  border: 1px solid rgba(255, 176, 111, 0.5);
+  border-radius: 0.55rem;
+  padding: 0.28rem 0.45rem;
+  font-size: 0.67rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.36);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  z-index: 2;
+}
+
+.ico::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.22rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translateX(-50%) rotate(45deg);
+  background: rgba(10, 14, 24, 0.96);
+  border-right: 1px solid rgba(255, 176, 111, 0.5);
+  border-bottom: 1px solid rgba(255, 176, 111, 0.5);
+  opacity: 0;
+  transition: opacity 0.16s ease;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .ico span {
@@ -871,6 +910,26 @@ textarea {
 
 .ico.toggle.on:hover {
   transform: translateY(-1px);
+}
+
+.ico:hover::after,
+.ico:hover::before,
+.ico:focus-visible::after,
+.ico:focus-visible::before,
+.ico.tip-visible::after,
+.ico.tip-visible::before {
+  opacity: 1;
+}
+
+.ico:hover::after,
+.ico:focus-visible::after,
+.ico.tip-visible::after {
+  transform: translate(-50%, 0);
+}
+
+.ico:focus-visible {
+  outline: 2px solid rgba(255, 176, 111, 0.75);
+  outline-offset: 2px;
 }
 
 .p-why {
