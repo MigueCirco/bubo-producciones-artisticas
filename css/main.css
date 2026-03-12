@@ -183,6 +183,7 @@ video {
 
 .cards-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .cards-2 {
@@ -201,6 +202,9 @@ details {
 .product-card {
   padding: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-color: rgba(255, 122, 26, 0.24);
 }
 
 .product-card h3,
@@ -210,22 +214,34 @@ details {
   margin-right: 1rem;
 }
 
+.product-card p {
+  color: var(--muted);
+}
+
 .product-card h3 {
-  margin-top: 0.9rem;
+  margin-top: 1rem;
+  margin-bottom: 0.55rem;
 }
 
 .product-media-shell {
   position: relative;
-  border-bottom: 1px solid rgba(255, 122, 26, 0.25);
+  width: min(100%, 22rem);
+  align-self: center;
+  margin: 1rem 1rem 0;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 122, 26, 0.35);
   background:
-    radial-gradient(circle at 20% 20%, rgba(255, 122, 26, 0.18), transparent 40%),
+    radial-gradient(circle at 20% 20%, rgba(255, 122, 26, 0.22), transparent 45%),
     #080d16;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.34);
 }
 
 .product-video {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
+  object-position: center;
 }
 
 .product-video::-webkit-media-controls-panel {
@@ -235,6 +251,10 @@ details {
 .card ul {
   margin: 0.8rem 1rem 1rem;
   padding-left: 1.2rem;
+}
+
+.product-card ul {
+  margin-top: 0.55rem;
 }
 
 .gallery-grid {
@@ -323,6 +343,10 @@ textarea {
   .cards-2,
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+
+  .product-media-shell {
+    width: min(100%, 20rem);
   }
 
   .brand span {
