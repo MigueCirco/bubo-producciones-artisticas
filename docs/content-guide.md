@@ -33,11 +33,10 @@ La sección `#galeria` se genera dinámicamente desde `js/main.js` usando este a
 ```js
 const instagramGalleryItems = [
   {
-    contentType: 'REEL',
+    type: 'video',
     url: 'https://www.instagram.com/reel/.../',
     title: '...',
-    thumbnailManual: '',
-    thumbnailExperimental: ''
+    thumbnail: './assets/img/instagram/reel-1.jpg'
   },
   // ... 5 tarjetas más
 ];
@@ -45,17 +44,39 @@ const instagramGalleryItems = [
 
 ### Qué editar para mantener la galería al día
 
-- `contentType`: `REEL` o `POST` para la etiqueta visual.
+- `type`: `video` (reel) o `image` (post).
 - `url`: link público de Instagram.
 - `title`: texto visible en tarjeta.
-- `thumbnailManual` (opcional): miniatura definida manualmente (prioridad 1).
-- `thumbnailExperimental` (opcional): soporte secundario de miniatura automática/externa. Si falla, la tarjeta sigue mostrando fallback visual elegante.
+- `thumbnail` (opcional): miniatura manual local.
 
-### Prioridad de render de miniaturas
+### Carpeta y nombres recomendados para miniaturas manuales
 
-1. `thumbnailManual`
-2. `thumbnailExperimental`
-3. fallback visual con ícono Instagram + etiqueta + título + botón.
+Usar esta carpeta:
+
+```text
+assets/img/instagram/
+```
+
+Nombres sugeridos (si existen, ya están listos para usarse):
+
+```text
+assets/img/instagram/reel-1.jpg
+assets/img/instagram/reel-2.jpg
+assets/img/instagram/reel-3.jpg
+assets/img/instagram/post-1.jpg
+assets/img/instagram/post-2.jpg
+assets/img/instagram/post-3.jpg
+```
+
+### Cómo funciona el fallback si falta una miniatura
+
+Prioridad de render por tarjeta:
+
+1. `thumbnail` manual local.
+2. fallback visual elegante (fondo escénico oscuro + acento naranja + ícono de Instagram).
+3. botón **“Ver en Instagram”** siempre visible.
+
+Si el archivo no existe o falla al cargar, la tarjeta elimina la imagen y se mantiene funcional con fallback y CTA.
 
 ---
 
@@ -65,7 +86,6 @@ const instagramGalleryItems = [
 - Comprimir videos e imágenes antes de publicar.
 - Evitar cambiar IDs de secciones (`#productos`, `#galeria`) para no romper navegación.
 
-
 ---
 
 ## 4) Instagram oficial, navbar mobile y links editables
@@ -74,10 +94,14 @@ Toda la configuración comercial está en `js/main.js`:
 
 - **Perfil oficial de Instagram:** cambiar `instagramProfileUrl`.
 - **Los 6 links de galería (3 reels + 3 posts):** cambiar `url` dentro de `instagramGalleryItems`.
-- **Etiqueta REEL/POST:** cambiar `contentType` en cada item.
+- **Tipo de tarjeta:** cambiar `type` (`video`/`image`) en cada item.
 - **Título visible de cada tarjeta:** cambiar `title` en cada item.
-- **Miniatura manual/experimental por tarjeta:** `thumbnailManual` y `thumbnailExperimental`.
-- **Nombre mobile del navbar:** editar los textos en `index.html` (`.brand-label-default` y `.brand-label-compact`).
+- **Miniatura manual por tarjeta:** `thumbnail`.
+
+En `index.html` se controla la marca para mobile:
+
+- `.brand-label-default`: texto completo (ej. “Búho Producciones”).
+- `.brand-label-compact`: texto corto (ej. “Búho”).
 
 Ejemplo:
 
@@ -86,13 +110,11 @@ const instagramProfileUrl = 'https://www.instagram.com/buho_producciones_artisti
 
 const instagramGalleryItems = [
   {
-    contentType: 'REEL',
+    type: 'video',
     url: 'https://www.instagram.com/reel/C1ry00DOpZF/',
-    title: '...',
-    thumbnailManual: '',
-    thumbnailExperimental: ''
-  },
-  // ...
+    title: 'Show en acción',
+    thumbnail: './assets/img/instagram/reel-1.jpg'
+  }
 ];
 ```
 
