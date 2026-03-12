@@ -203,6 +203,27 @@ const contactConfig = {
   }
 };
 
+const productVideos = document.querySelectorAll('.product-video');
+
+const tryAutoplayProductVideo = (video) => {
+  video.muted = true;
+  video.defaultMuted = true;
+
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {
+      // Algunos navegadores bloquean autoplay en ciertos contextos.
+    });
+  }
+};
+
+productVideos.forEach((video) => {
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('autoplay', '');
+  tryAutoplayProductVideo(video);
+});
+
 const whatsappButtons = document.querySelectorAll('[data-whatsapp-contact]');
 
 whatsappButtons.forEach((button) => {
