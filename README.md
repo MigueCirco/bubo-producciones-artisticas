@@ -79,3 +79,22 @@ Editá `js/main.js` para cambios comerciales frecuentes:
 - `contactConfig.messages`: textos predeterminados para WhatsApp (general, bar y familiar).
 
 > Guía ampliada: `docs/content-guide.md`.
+
+
+## 6) Nueva sección comercial: “Eventos para cada ocasión”
+
+La home incluye un carrusel de categorías de eventos para ampliar la propuesta comercial más allá del formato nocturno.
+
+### Archivos clave
+- Estructura y copy de tarjetas: `index.html` (`#eventos-ocasion`).
+- Estilos y responsive del carrusel: `css/main.css` (`.event-carousel*`, `.event-card*`).
+- Navegación (flechas, puntos) + fallback de imágenes: `js/main.js` (`eventCarousel`).
+
+### Edición rápida
+- **Imágenes:** cambiar `src` en cada tarjeta (`./assets/img/eventos/...`).
+- **Títulos/descripciones:** editar `h3` y `p` en cada tarjeta.
+- **CTA y mensaje:** editar texto del botón en `index.html` y mensaje WhatsApp en `contactConfig.messages`.
+- **Agregar/quitar categorías:** duplicar o eliminar `article.event-card` (el carrusel se adapta automáticamente).
+
+> Detalle completo de mantenimiento en `docs/content-guide.md`.
+

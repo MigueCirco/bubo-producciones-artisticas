@@ -184,6 +184,90 @@ if (instagramGallery) {
   instagramGallery.replaceChildren(fragment);
 }
 
+
+const eventCarousel = document.querySelector('[data-event-carousel]');
+
+if (eventCarousel) {
+  const track = eventCarousel.querySelector('[data-carousel-track]');
+  const slides = track ? Array.from(track.querySelectorAll('[data-event-slide]')) : [];
+  const prevButton = eventCarousel.querySelector('[data-carousel-prev]');
+  const nextButton = eventCarousel.querySelector('[data-carousel-next]');
+  const dotsContainer = document.querySelector('[data-carousel-dots]');
+
+  slides.forEach((slide) => {
+    const image = slide.querySelector('img');
+    if (!image) {
+      return;
+    }
+
+    image.addEventListener('load', () => {
+      slide.classList.add('event-card--has-image');
+    });
+
+    image.addEventListener('error', () => {
+      image.remove();
+      slide.classList.remove('event-card--has-image');
+    });
+  });
+
+  if (track && slides.length && dotsContainer) {
+    const getStep = () => slides[0].getBoundingClientRect().width + 16;
+
+    const buildDots = () => {
+      dotsContainer.replaceChildren();
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'event-carousel-dot';
+        dot.setAttribute('aria-label', `Ir a propuesta ${index + 1}`);
+        dot.addEventListener('click', () => {
+          track.scrollTo({ left: getStep() * index, behavior: 'smooth' });
+        });
+        dotsContainer.appendChild(dot);
+      });
+    };
+
+    const setActiveState = () => {
+      const step = getStep();
+      const activeIndex = Math.round(track.scrollLeft / step);
+      const dots = dotsContainer.querySelectorAll('.event-carousel-dot');
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === activeIndex);
+      });
+
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (prevButton) {
+        prevButton.disabled = track.scrollLeft <= 4;
+      }
+      if (nextButton) {
+        nextButton.disabled = track.scrollLeft >= maxScroll - 4;
+      }
+    };
+
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        track.scrollBy({ left: getStep(), behavior: 'smooth' });
+      });
+    }
+
+    buildDots();
+    setActiveState();
+
+    track.addEventListener('scroll', () => {
+      window.requestAnimationFrame(setActiveState);
+    });
+
+    window.addEventListener('resize', setActiveState);
+  }
+}
+
 const contactConfig = {
   Miguel: {
     phone: '5493814012526',
@@ -199,7 +283,11 @@ const contactConfig = {
     generalNano:
       'Hola Nano, quiero consultar por un show de Búho Producciones Artísticas para un evento.',
     bar: 'Hola, quiero consultar por la Experiencia Nocturna Búho para un bar o evento nocturno.',
-    familiar: 'Hola, quiero consultar por El Circo de los Búhos para un evento.'
+    familiar: 'Hola, quiero consultar por El Circo de los Búhos para un evento.',
+    infantil: 'Hola, quiero consultar por una propuesta de Búho para cumpleaños y eventos infantiles.',
+    municipal: 'Hola, quiero consultar por propuestas de Búho para eventos municipales y festivales.',
+    escuelas: 'Hola, quiero consultar por shows de Búho para escuelas, colonias o talleres barriales.',
+    recepcion: 'Hola, quiero consultar por recepciones y entradas artísticas para mi evento.'
   }
 };
 

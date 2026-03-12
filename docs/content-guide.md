@@ -144,3 +144,66 @@ const contactConfig = {
   }
 };
 ```
+
+
+---
+
+## 6) Sección “Eventos para cada ocasión” (nuevo carrusel)
+
+La sección está en `index.html` con el id:
+
+```html
+<section id="eventos-ocasion" class="section">
+```
+
+Cada categoría es una tarjeta `<article class="event-card" data-event-slide>` dentro de:
+
+```html
+<div class="event-carousel-track" data-carousel-track>
+```
+
+### Dónde cambiar imágenes
+
+En cada tarjeta, editar el `src` del `<img>`.
+
+Rutas preparadas:
+
+- `./assets/img/eventos/eventos-infantiles.jpg`
+- `./assets/img/eventos/eventos-familiares.jpg`
+- `./assets/img/eventos/eventos-nocturnos.jpg`
+- `./assets/img/eventos/eventos-municipales.jpg`
+- `./assets/img/eventos/eventos-talleres.jpg`
+- `./assets/img/eventos/eventos-recepcion.jpg`
+
+Si una imagen no existe, el JS muestra un fallback visual elegante sin romper diseño.
+
+### Dónde cambiar títulos
+
+Editar el texto del `<h3>` dentro de cada `article.event-card` en `index.html`.
+
+### Dónde cambiar descripciones
+
+Editar el texto del `<p>` dentro de cada `article.event-card` en `index.html`.
+
+### Dónde cambiar CTA
+
+El botón CTA de cada tarjeta es este enlace:
+
+```html
+<a class="button" data-whatsapp-contact="..." data-whatsapp-message="..." href="#">Consultar este formato</a>
+```
+
+- El texto visible (`Consultar este formato`) se cambia directo en `index.html`.
+- El mensaje de WhatsApp se cambia en `js/main.js`, dentro de `contactConfig.messages`.
+
+### Cómo agregar o quitar categorías
+
+1. Duplicar o eliminar un bloque `<article class="event-card" data-event-slide>` en `index.html`.
+2. Ajustar imagen, título, descripción y atributos `data-whatsapp-*`.
+3. No hace falta tocar lógica del carrusel: los puntos, flechas y estado activo se recalculan solos desde `js/main.js`.
+4. Si agregás un nuevo `data-whatsapp-message`, crear también su texto en `contactConfig.messages`.
+
+### Estilos y comportamiento
+
+- Estilos del carrusel: `css/main.css` (bloques `.event-carousel*` y `.event-card*`).
+- Lógica del slider y fallback de imágenes: `js/main.js` (bloque `eventCarousel`).
